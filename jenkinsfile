@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    triggers {
+        pollSCM '* * * * *'
+
+    }
+    stages {
+        stage("Maven-Build"){
+            steps{
+                sh '''
+
+                cd my-maven-docker-project
+                mvn clean install
+
+
+                '''
+
+            }
+        }
+    
+
+stages {
+        stage("Docker-Build"){
+            steps{
+                sh '''
+                cd my-maven-docker-project
+                chmod 775 *
+                ls -la
+                docker build -t java-image:v1 .
+
+
+
+                '''
+
+            }
+        }
+    }
+}
