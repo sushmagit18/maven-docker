@@ -9,7 +9,7 @@ phases:
     commands:
       - echo "Build Completed Successfully"
       - ls -l target/
-      - docker build -t my-maven-docker-project.jar.
+      - docker build -t my-maven-docker-project.jar .
       - docker images
 
 artifacts:
