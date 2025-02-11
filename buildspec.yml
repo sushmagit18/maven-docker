@@ -15,7 +15,7 @@ phases:
     commands:
       - echo "Build Completed Successfully"
       - ls -l target/
-      - docker build -t $IMAGE_REPO_NAME:$IMAGE_tAG .
+      - docker build -t $IMAGE_REPO_NAME:$IMAGE_TAG .
       - docker tag $IMAGE_REPO_NAME:$IMAGE_TAG $AWS_ACCOUNT.dkr.ecr.$AWS_REGION.amazonaws.com/$IMAGE_REPO_NAME:$IMAGE_TAG
       - docker images
       - echo "Docker Push to ECR"
